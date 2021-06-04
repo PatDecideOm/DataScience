@@ -8,8 +8,8 @@ from supervised.automl import AutoML
 
 print('--- DEB ---')
 
-dataset = pd.read_csv('C:/applis/kaggle/tabular-playground-series-jun-2021/train_cluster.csv')
-unseen = pd.read_csv('C:/applis/kaggle/tabular-playground-series-jun-2021/test_cluster.csv')
+dataset = pd.read_csv('C:/applis/kaggle/tabular-playground-series-jun-2021/train_cluster.csv', sep=';')
+unseen = pd.read_csv('C:/applis/kaggle/tabular-playground-series-jun-2021/test_cluster.csv', sep=';')
 
 print(dataset.shape)
 print(unseen.shape)
