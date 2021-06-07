@@ -38,7 +38,7 @@ X_train, X_validation, y_train, y_validation = train_test_split(X, y, train_size
 print(X_train.head())
 
 # Initialize CatBoostClassifier
-model = CatBoostClassifier(iterations=2000,
+model = CatBoostClassifier(iterations=20,
                            learning_rate=0.1,
                            depth=10,
                            loss_function='MultiClass',

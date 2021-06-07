@@ -62,7 +62,7 @@ unseen = unseen.drop('id', axis=1)
 
 def objective(trial, data=X, target=y):
 
-    X_train, X_validation, y_train, y_validation = train_test_split(X, y, train_size=0.85, random_state=0)
+    X_train, X_validation, y_train, y_valid = train_test_split(X, y, train_size=0.85, random_state=0)
 
     params = {
         'max_depth': trial.suggest_int('max_depth', 6, 12),
@@ -84,7 +84,7 @@ def objective(trial, data=X, target=y):
     model = CatBoostClassifier(**params)
     model.fit(X_train, y_train, eval_set=[(X_validation, y_validation)], early_stopping_rounds=300, verbose=False)
     y_pred = model.predict_proba(X_validation)[:, 1]
-    roc_auc = roc_auc_score(y_validation, y_pred)
+    roc_auc = roc_auc_score(y_valid, y_pred)
 
     return roc_auc
 
